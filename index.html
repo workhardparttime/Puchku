@@ -41,23 +41,6 @@
     </div>
 
     <script>
-        // सभी नंबरों की लिस्ट
-        const phoneNumbers = [
-            "+91 92027 59197", "+44 333 880 6845", "+91 95090 74630", "+91 95417 05168",
-            "+91 73919 84456", "+91 95893 34389", "+91 99563 90489", "+91 73919 84456",
-            "+91 95893 34389", "+91 63770 82830", "+44 115 990 3924", "+91 63876 25870",
-            "+91 69002 29674", "+44 7585 010495", "+91 77398 22576", "+44 7464 312967",
-            "+91 91983 08248", "+91 78736 86647", "+91 86192 65921", "+91 93206 32143",
-            "+91 91490 92255", "+91 92021 12537", "+91 97942 67554", "+91 97955 13115",
-            "+91 99563 90489", "+91 99734 41073", "+91 63770 82830", "+91 97942 67554",
-            "+91 97955 13115"
-        ];
-
-        function getRandomNumber() {
-            const randomIndex = Math.floor(Math.random() * phoneNumbers.length);
-            return phoneNumbers[randomIndex];
-        }
-
         setTimeout(startCountdown, 3000); // पेज लोड होने के 3 सेकंड बाद काउंटडाउन स्टार्ट होगा
 
         function startCountdown() {
@@ -73,10 +56,8 @@
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);
                     
-                    // WhatsApp लिंक बनाएं
-                    let selectedNumber = getRandomNumber();
-                    let whatsappLink = `https://wa.me/${selectedNumber.replace(/\D/g, '')}`;
-                    window.location.href = whatsappLink;
+                    // Telegram लिंक पर रीडायरेक्ट करें
+                    window.location.href = "https://t.me/SFAEarnings";
                 }
             }, 1000);
         }
