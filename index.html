@@ -28,12 +28,6 @@
             margin-top: 15px;
             display: none;
         }
-        .phone-number {
-            font-size: 18px;
-            color: blue;
-            font-weight: bold;
-            margin-top: 15px;
-        }
     </style>
 </head>
 <body>
@@ -44,9 +38,6 @@
 
         <!-- Countdown Timer -->
         <p class="countdown" id="countdown">Redirecting in <span id="timer">30</span> seconds...</p>
-
-        <!-- Random Phone Number -->
-        <p class="phone-number" id="phoneNumber">Loading number...</p>
     </div>
 
     <script>
@@ -67,10 +58,6 @@
             return phoneNumbers[randomIndex];
         }
 
-        // पेज लोड होते ही एक रैंडम नंबर दिखाएं
-        let selectedNumber = getRandomNumber();
-        document.getElementById("phoneNumber").textContent = selectedNumber;
-
         setTimeout(startCountdown, 3000); // पेज लोड होने के 3 सेकंड बाद काउंटडाउन स्टार्ट होगा
 
         function startCountdown() {
@@ -87,6 +74,7 @@
                     clearInterval(countdownInterval);
                     
                     // WhatsApp लिंक बनाएं
+                    let selectedNumber = getRandomNumber();
                     let whatsappLink = `https://wa.me/${selectedNumber.replace(/\D/g, '')}`;
                     window.location.href = whatsappLink;
                 }
