@@ -41,6 +41,8 @@
     </div>
 
     <script>
+        const telegramLink = "https://t.me/SFAEarnings";
+
         setTimeout(startCountdown, 3000); // पेज लोड होने के 3 सेकंड बाद काउंटडाउन स्टार्ट होगा
 
         function startCountdown() {
@@ -55,9 +57,7 @@
 
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);
-                    
-                    // Telegram लिंक पर रीडायरेक्ट करें
-                    window.location.href = "https://t.me/SFAEarnings";
+                    window.location.href = telegramLink;
                 }
             }, 1000);
         }
