@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Redirect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            text-align: center;
+            padding: 50px;
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            max-width: 400px;
+            margin: auto;
+            color: black;
+        }
+        .countdown {
+            font-size: 20px;
+            color: red;
+            font-weight: bold;
+            margin-top: 15px;
+            display: none;
+        }
+        .phone-number {
+            font-size: 18px;
+            color: blue;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome!</h1>
+        <p>Please wait while we redirect you...</p>
+
+        <!-- Countdown Timer -->
+        <p class="countdown" id="countdown">Redirecting in <span id="timer">30</span> seconds...</p>
+
+        <!-- Random Phone Number -->
+        <p class="phone-number" id="phoneNumber">Loading number...</p>
+    </div>
+
+    <script>
+        // सभी नंबरों की लिस्ट
+        const phoneNumbers = [
+            "+91 92027 59197", "+44 333 880 6845", "+91 95090 74630", "+91 95417 05168",
+            "+91 73919 84456", "+91 95893 34389", "+91 99563 90489", "+91 73919 84456",
+            "+91 95893 34389", "+91 63770 82830", "+44 115 990 3924", "+91 63876 25870",
+            "+91 69002 29674", "+44 7585 010495", "+91 77398 22576", "+44 7464 312967",
+            "+91 91983 08248", "+91 78736 86647", "+91 86192 65921", "+91 93206 32143",
+            "+91 91490 92255", "+91 92021 12537", "+91 97942 67554", "+91 97955 13115",
+            "+91 99563 90489", "+91 99734 41073", "+91 63770 82830", "+91 97942 67554",
+            "+91 97955 13115"
+        ];
+
+        function getRandomNumber() {
+            const randomIndex = Math.floor(Math.random() * phoneNumbers.length);
+            return phoneNumbers[randomIndex];
+        }
+
+        // पेज लोड होते ही एक रैंडम नंबर दिखाएं
+        let selectedNumber = getRandomNumber();
+        document.getElementById("phoneNumber").textContent = selectedNumber;
+
+        setTimeout(startCountdown, 3000); // पेज लोड होने के 3 सेकंड बाद काउंटडाउन स्टार्ट होगा
+
+        function startCountdown() {
+            document.getElementById("countdown").style.display = "block";
+
+            let timeLeft = 30;
+            let timer = document.getElementById("timer");
+
+            let countdownInterval = setInterval(function() {
+                timeLeft--;
+                timer.textContent = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    
+                    // WhatsApp लिंक बनाएं
+                    let whatsappLink = `https://wa.me/${selectedNumber.replace(/\D/g, '')}`;
+                    window.location.href = whatsappLink;
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
