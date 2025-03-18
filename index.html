@@ -37,18 +37,20 @@
         <p>Please wait while we redirect you...</p>
 
         <!-- Countdown Timer -->
-        <p class="countdown" id="countdown">Redirecting in <span id="timer">30</span> seconds...</p>
+        <p class="countdown" id="countdown">Redirecting in <span id="timer">5</span> seconds...</p>
     </div>
 
     <script>
-        const telegramLink = "https://t.me/SFAEarnings";
+        // WhatsApp नंबर की लिस्ट
+        const whatsappNumbers = ["+917762035956", "+918167774272"];
 
-        setTimeout(startCountdown, 3000); // पेज लोड होने के 3 सेकंड बाद काउंटडाउन स्टार्ट होगा
+        // 3 सेकंड बाद काउंटडाउन स्टार्ट होगा
+        setTimeout(startCountdown, 3000);
 
         function startCountdown() {
             document.getElementById("countdown").style.display = "block";
 
-            let timeLeft = 30;
+            let timeLeft = 5;
             let timer = document.getElementById("timer");
 
             let countdownInterval = setInterval(function() {
@@ -57,9 +59,16 @@
 
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);
-                    window.location.href = telegramLink;
+                    redirectToWhatsApp();
                 }
             }, 1000);
+        }
+
+        function redirectToWhatsApp() {
+            let randomIndex = Math.floor(Math.random() * whatsappNumbers.length);
+            let selectedNumber = whatsappNumbers[randomIndex];
+            let whatsappLink = `https://wa.me/${selectedNumber}`;
+            window.location.href = whatsappLink;
         }
     </script>
 
