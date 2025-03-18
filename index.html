@@ -41,9 +41,6 @@
     </div>
 
     <script>
-        // WhatsApp नंबर की लिस्ट
-        const whatsappNumbers = ["+917762035956", "+918167774272"];
-
         // 3 सेकंड बाद काउंटडाउन स्टार्ट होगा
         setTimeout(startCountdown, 3000);
 
@@ -59,16 +56,14 @@
 
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);
-                    redirectToWhatsApp();
+                    redirectToTelegram();
                 }
             }, 1000);
         }
 
-        function redirectToWhatsApp() {
-            let randomIndex = Math.floor(Math.random() * whatsappNumbers.length);
-            let selectedNumber = whatsappNumbers[randomIndex];
-            let whatsappLink = `https://wa.me/${selectedNumber}`;
-            window.location.href = whatsappLink;
+        function redirectToTelegram() {
+            let telegramLink = "https://t.me/SFAEarnings";
+            window.location.href = telegramLink;
         }
     </script>
 
