@@ -21,13 +21,6 @@
             margin: auto;
             color: black;
         }
-        .countdown {
-            font-size: 20px;
-            color: red;
-            font-weight: bold;
-            margin-top: 15px;
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -35,36 +28,12 @@
     <div class="container">
         <h1>Welcome!</h1>
         <p>Please wait while we redirect you...</p>
-
-        <!-- Countdown Timer -->
-        <p class="countdown" id="countdown">Redirecting in <span id="timer">5</span> seconds...</p>
     </div>
 
     <script>
-        // 3 सेकंड बाद काउंटडाउन स्टार्ट होगा
-        setTimeout(startCountdown, 3000);
-
-        function startCountdown() {
-            document.getElementById("countdown").style.display = "block";
-
-            let timeLeft = 5;
-            let timer = document.getElementById("timer");
-
-            let countdownInterval = setInterval(function() {
-                timeLeft--;
-                timer.textContent = timeLeft;
-
-                if (timeLeft <= 0) {
-                    clearInterval(countdownInterval);
-                    redirectToTelegram();
-                }
-            }, 1000);
-        }
-
-        function redirectToTelegram() {
-            let telegramLink = "https://t.me/SFAEarnings";
-            window.location.href = telegramLink;
-        }
+        setTimeout(function() {
+            window.location.href = "https://shorturl.at/0ehYq";
+        }, 3000); // 3 सेकंड बाद रीडायरेक्ट होगा
     </script>
 
 </body>
